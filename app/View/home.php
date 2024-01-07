@@ -17,36 +17,29 @@ include __DIR__.('./includes/navbar.php');
 <section class= "hero">
     
     </section>
-    
     <div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-        <div class="col-md-6 mb-md-0 p-md-4">
-        <img src="..." class="w-100" alt="...">
-      </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="stretched-link""></a>
-          </div>
-        </div>
-      </div>
+    <?php  foreach ($allWikis as $wiki): ?>
     
-      <div class="col-sm-6">
+      
+  
+    <div class="col-sm-12 col-md-6 ">
         <div class="card">
-        <div class="col-md-6 mb-md-0 p-md-4">
-        <img src="..." class="w-100" alt="...">
+        <div class="col-md-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/280px-C_Programming_Language.svg.png" class="w-100" alt="...">
       </div>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title"><?= $wiki['titre'] ?></h5>
+          <h5 class="card-title"><?= $wiki['nom'] ?></h5>
+            
             <a href="#" class="stretched-link""></a>
           </div>
         </div>
       </div>
+       
+    
+      <?php endforeach; ?>
     </div>
-    
-    <footer class="footer bg-info text-light text-center py-3 fixed-bottom">
+    <footer class="footer bg-info text-light text-center py-3 ">
   <div class="container">
     <p>&copy; 2024 Your wikis</p>
   </div>
