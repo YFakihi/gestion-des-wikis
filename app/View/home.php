@@ -14,31 +14,25 @@
 include __DIR__.('./includes/navbar.php');
 ?>
 <body>
-<section class= "hero">
-    
-    </section>
-    <div class="row">
-    <?php  foreach ($allWikis as $wiki): ?>
-    
-      
-  
-    <div class="col-sm-12 col-md-6 ">
-        <div class="card">
-        <div class="col-md-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/280px-C_Programming_Language.svg.png" class="w-100" alt="...">
-      </div>
+<div class="row">
+  <?php foreach ($allWikis as $wiki): ?>
+    <div class="col-lg-4 col-md-6 col-12 my-4 d-flex flex-column align-items-center">
+      <a href="" class="card stretched-link text-decoration-none">
+        <div style="max-width: 23rem;" class="card">
+          <img src="<?= URL_DIR ?>public/assets/images/bkog.png" alt="gara" style="height: 9rem;" class="my-2 position-relative">
           <div class="card-body">
-          <h5 class="card-title"><?= $wiki['titre'] ?></h5>
-          <h5 class="card-title"><?= $wiki['nom'] ?></h5>
-            
-            <a href="#" class="stretched-link""></a>
+            <div class="card-head">
+              <h5 class="card-title fw-semibold text-center"><?= $wiki['titre'] ?></h5>
+              <p class="text-center"><?= $wiki['nom'] ?></p>
+              <p class="card-text text-center "><?= $wiki['contenu'] ?></p>
+            </div>
           </div>
         </div>
-      </div>
-       
-    
-      <?php endforeach; ?>
+      </a>
     </div>
+  <?php endforeach; ?>
+</div>
+
     <footer class="footer bg-info text-light text-center py-3 ">
   <div class="container">
     <p>&copy; 2024 Your wikis</p>
@@ -47,6 +41,20 @@ include __DIR__.('./includes/navbar.php');
 
 
 </body>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/assets/lib/easing/easing.min.js"></script>
+    <script src="../../public/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../public/assets/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../../public/assets/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../../public/assets/js/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../../public/assets/js/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../public/assets/js/main.js"></script>
 </html>
 
 

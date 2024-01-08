@@ -1,7 +1,12 @@
 <?php 
 namespace App\Controller;
+
+use App\Model\UsersModel;
+
 class UsersController {
     public function index() {
-        include "../app/View/dashboard/users.php";
+      
+        
+        
     }
 }

@@ -15,13 +15,14 @@ class WikisModel extends Database {
     public function getallwikis(){
       
 
-        $query = "SELECT w.titre , c.nom FROM wikis w  inner JOIN categories c where w.id_categorie = c.id";
+        $query = "SELECT w.titre , c.nom ,w.contenu FROM wikis w  inner JOIN categories c where w.id_categorie = c.id limit 6";
         $stmt = $this->getConnection()->query($query);
 
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
        
 
-        return $records; // Return the fetched r
+        return $records; 
+        
     }
     
 }
