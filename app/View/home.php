@@ -24,7 +24,7 @@ include __DIR__.('./includes/navbar.php');
             <div class="card-head">
               <h5 class="card-title fw-semibold text-center"><?= $wiki['titre'] ?></h5>
               <p class="text-center"><?= $wiki['nom'] ?></p>
-              <p class="card-text text-center "><?= $wiki['contenu'] ?></p>
+              <p class="card-text text-center text-truncate"><?= $wiki['contenu'] ?></p>
             </div>
           </div>
         </div>
