@@ -112,30 +112,34 @@
            
                     <tr>
                         <td><?= $wiki['titre'] ?></td>
-                        <td><?=$wiki['nom'] ?></td>
+                        <td><?= $wiki['nom'] ?></td>
                         <td>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $wiki['id'] ?>">
                                 voir wiki
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal<?= $wiki['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5 text-dark " id="exampleModalLabel"><?= $wiki['titre'] ?></h1>
-                                            <h1 class="modal-title fs-5 text-dark " id="exampleModalLabel"><?= $wiki['contenu'] ?></h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-dark ">
-                                         
+                                        <?= $wiki['contenu'] ?>
                                         </div>
-                                        <div class="modal-footer">
-                                            <a  href="" class="btn btn-outline-primary">accepter</a>
-                                            <a  href="" class="btn btn-outline-danger">supprimer</a>
-                                        </div>
+                                        <form action="Dashboard/accept" method="post">
+                                                    <input type="hidden" name="id" value="<?= $wiki['id'] ?>"></br>
+                                                    <button type="submit" class="btn btn-outline-primary" name="isaccept">accepter</button>
+                                        </form>
+                                        <form action="Dashboard/delete" method="post">
+                                                    <input type="hidden" name="id" value="<?= $wiki['id'] ?>">
+                                                    <button type="submit" class="btn btn-outline-danger" name="isaccept">Delete</button>
+
+                                     </form>
                                     </div>
                                 </div>
                             </div>
@@ -148,9 +152,41 @@
         </table>
         <div class="container__header">
             <h3>Tags Statistiques</h3>
+            
             <i class="fas fa-tag"></i>
         </div>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Ajoute
+                            </button>
 
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5 text-dark " id="exampleModalLabel">Ajouter Wiki</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-dark ">
+
+                                        <form action="Dashboard/addTags" method="post">
+                                    <div class="form-group">
+                                        <label for="tag">Nom Tag</label>
+                                        <input type="text" class="form-control" id="nom_tag" name="nom_tag" aria-describedby="tag" placeholder="Enter Tag">
+                                    </div>
+                                   
+                                    
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+
+                             
+                                        
+                                        </div>
+                                       
+                     
+                                    </div>
+                                </div>
+                            </div>
         <table class="container__table">
             <thead>
                 <tr>
@@ -165,10 +201,11 @@
                foreach($tags as $tag) :?>
 
                  
-                    <tr>
-                        
+                    <tr>  
                         <td><?= $tag["nom_tag"] ?></td>
                         <td>
+                     
+
                             <div class="btn btn-outline-primary">modifier</div>
                             <div class="btn btn-outline-danger">supprimer</div>
                         </td>
@@ -215,14 +252,16 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user) : ?>
-                    <tr>
-                        <td><?= $user->nom ?></td>
-                        <td><?= $user->email ?></td>
-                        <td><?= $user->role ?></td>
 
-                    </tr>
-                <?php endforeach; ?>
+
+
+     <?php foreach ($users as $user) : ?>
+    <tr>
+        <td><?= $user['nom'] ?></td>
+        <td><?= $user['email'] ?></td>
+        <td><?= $user['role'] ?></td>
+    </tr>
+<?php endforeach; ?>
             </tbody>
         </table>
     </main>

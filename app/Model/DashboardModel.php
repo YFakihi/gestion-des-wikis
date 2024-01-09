@@ -1,39 +1,60 @@
 <?php
-namespace App\Model;
-include __DIR__ ."../../../database/Connection.php";
 
-
-use connection\Database;
+namespace App\Model ;
 use PDO;
-
-
-class DashboardModel extends Database{
-    public function __construct(){
-        parent::__construct();
+class DashboardModel{
+    private $db;
+    public function __construct()
+    {
+        // Assuming you have a Database class that provides a PDO connection
+        $this->db = Database::getInstance()->getConnection();
     }
     public function getallusers(){
-     $query = "select * from users";
-   
-     $stm = $this->getConnection()->query($query);
-     $resu = $stm->fetchAll(PDO::FETCH_OBJ);
-     return $resu;
+        $query = "SELECT * FROM users";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $records;
+        
            
     }
     public function getallwikis(){
       
 
-        $query = "SELECT w.titre , c.nom , w.contenu as nom FROM wikis w  inner JOIN categories c where w.id_categorie = c.id";
-        $stmt = $this->getConnection()->query($query);
-
+       
+        $stmt =  $this->db->prepare("SELECT w.*, c.nom as nom FROM wikis w INNER JOIN categories c ON w.id_categorie = c.id WHERE w.statu = 0");
+       
+        $stmt->execute();
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $records; 
         
     }
 
-    public function getAlltags(){
-        $query = "SELECT * FROM tags";
-        $stmt = $this->getConnection()->query($query);
+ 
+        
+
+        public function getAlltags() {
+            $query = "SELECT * FROM tags";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $records;
+        }
+    
+
+    
+  
+    public function accept($id) {
+        $stmt =  $this->db->prepare("update wikis set statu = 1 where id = $id");
+        $stmt->execute();
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $records;
+           
+    }
+
+    public function delete($id) {
+
+        $stmt =  $this->db->prepare("delete from wikis where id = $id");
+        $stmt->execute();
+        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
