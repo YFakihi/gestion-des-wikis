@@ -33,7 +33,7 @@ include __DIR__.('./includes/navbar.php');
   <?php endforeach; ?>
 </div>
 
-    <footer class="footer bg-info text-light text-center py-3 ">
+    <footer class="footer bg-primary text-light text-center py-3 ">
   <div class="container">
     <p>&copy; 2024 Your wikis</p>
   </div>

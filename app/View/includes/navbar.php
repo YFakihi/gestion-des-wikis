@@ -25,8 +25,8 @@
                             <button class="btn btn-outline-success me-2" type="submit">Search</button>
                         </form>
                     </div>
-                    <button class="btn btn-info me-2">Sign Up</button>
-                    <button class="btn btn-info">Login</button>
+                    <a href="Auth/index" class="btn btn-info me-2">Sign Up</a>
+                    <a href="Auth/signin" class="btn btn-info">Login</a>
                 </div>
             </nav>
         </div>

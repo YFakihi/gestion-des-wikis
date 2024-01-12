@@ -39,9 +39,16 @@ class DashboardController {
              $nom = $_POST['nom_tag'];
              $tags->addtags($nom);
              header('Location: '. $_SERVER['HTTP_REFERER']); 
-        }
-       
-       
-        
+        }    
+    }
+
+    public function deletetag() { 
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $wikis = new TagsModel;
+            $id = $_POST['id'];
+            $wikis->deletetag($id); 
+            header('Location: '. $_SERVER['HTTP_REFERER']);
+   
+     }
     }
 }

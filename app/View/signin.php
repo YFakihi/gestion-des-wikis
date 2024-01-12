@@ -52,12 +52,8 @@
 
 <body>
     <div class="signup__container row justify-content-between">
-        <form id="registerForm" class="signup__container__form col-12 col-md-6" action="signup" method="POST">
-            <div class="mb-3">
-                <label for="nom" class="form-label">Nom :</label>
-                <input type="text" class="form-control" name="nom" id="nom" aria-describedby="helpId" placeholder="Enter your name"/>
-                <small id="nom" class="form-text text-muted"></small>
-            </div>
+        <form id="registerForm" class="signup__container__form col-12 col-md-6" action="<?=URL_DIR?>Auth/log" method="POST">
+          
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address :</label>
@@ -66,7 +62,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password :</label>
-                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Enter your password ">
+                <input type="password" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Enter your password ">
                 <small id="password" class="form-text text-muted"></small>
             </div>
 

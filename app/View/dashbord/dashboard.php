@@ -138,7 +138,6 @@
                                         <form action="Dashboard/delete" method="post">
                                                     <input type="hidden" name="id" value="<?= $wiki['id'] ?>">
                                                     <button type="submit" class="btn btn-outline-danger" name="isaccept">Delete</button>
-
                                      </form>
                                     </div>
                                 </div>
@@ -168,22 +167,14 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-dark ">
-
                                         <form action="Dashboard/addTags" method="post">
                                     <div class="form-group">
                                         <label for="tag">Nom Tag</label>
                                         <input type="text" class="form-control" id="nom_tag" name="nom_tag" aria-describedby="tag" placeholder="Enter Tag">
                                     </div>
-                                   
-                                    
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-
-                             
-                                        
+                                    </form>  
                                         </div>
-                                       
-                     
                                     </div>
                                 </div>
                             </div>
@@ -204,10 +195,13 @@
                     <tr>  
                         <td><?= $tag["nom_tag"] ?></td>
                         <td>
-                     
+                           
+                                                    <a href="Dashboard/updatTag" <?= $tag['id'] ?> type="submit" class="btn btn-success" name="updatetag">modifier</a>
+                          
+                            
+                                                    <a href="Dashboard/deletetag" <?= $tag['id'] ?> type="submit" class="btn btn-danger" name="deletetag">Delete</a>
 
-                            <div class="btn btn-outline-primary">modifier</div>
-                            <div class="btn btn-outline-danger">supprimer</div>
+                             
                         </td>
                     </tr>
             <?php endforeach; ?>
