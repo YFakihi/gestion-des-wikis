@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,7 @@ include __DIR__.('./includes/navbar.php');
 <div class="row">
   <?php foreach ($allWikis as $wiki): ?>
     <div class="col-lg-4 col-md-6 col-12 my-4 d-flex flex-column align-items-center">
-      <a href="" class="card stretched-link text-decoration-none">
+      <a href="Details" class="card stretched-link text-decoration-none">
         <div style="max-width: 23rem;" class="card">
           <img src="<?= URL_DIR ?>public/assets/images/bkog.png" alt="gara" style="height: 9rem;" class="my-2 position-relative">
           <div class="card-body">
@@ -52,6 +53,14 @@ include __DIR__.('./includes/navbar.php');
     <!-- Contact Javascript File -->
     <script src="../../public/assets/js/mail/jqBootstrapValidation.min.js"></script>
     <script src="../../public/assets/js/mail/contact.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+   
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- javascript links -->
+  <script src="javascript/main.js"></script>
 
     <!-- Template Javascript -->
     <script src="../../public/assets/js/main.js"></script>

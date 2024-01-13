@@ -25,8 +25,33 @@
                             <button class="btn btn-outline-success me-2" type="submit">Search</button>
                         </form>
                     </div>
+                 
+                    <?php if(!isset($_SESSION['nom'])){?>
                     <a href="Auth/index" class="btn btn-info me-2">Sign Up</a>
                     <a href="Auth/signin" class="btn btn-info">Login</a>
+
+                    <?php } else { ?>
+                        <?php echo 'Hello'.' ' .$_SESSION['nom']; ?>
+                        <ul class="navbar-nav">
+            
+                        <li class="nav-item dropdown">
+                            <a href="" class="nav-icon pe-md-0 position-relative" data-bs-toggle="dropdown">
+                                <img src= "<?php URL_DIR ?>public/assets/images/icons8.png ?>" alt="icon">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end position-absolute">
+                                <a href="Profile" class="dropdown-item" href="">Profile</a>
+                                <?php if($_SESSION['role'] == 1 ){ ?>
+                                <a href="" class="dropdown-item" href="">dashboard</a>
+                                <?php } ?>
+                                
+                                <a href="Auth/logout" class="dropdown-item">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                     
+                        
+                        <?php }?>
+                    
                 </div>
             </nav>
         </div>

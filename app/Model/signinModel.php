@@ -11,11 +11,18 @@ class SigninModel{
 
     public function login($email, $password){
       
-            $sql = $this->db->prepare("SELECT id, email, password, role FROM users WHERE email = :email and password = :password");  
-            $sql->bindParam(1, $email, PDO::PARAM_STR);
-            $sql->bindParam(2, $password, PDO::PARAM_STR);
+            $sql = $this->db->prepare("SELECT id,nom, email, password, role FROM users WHERE email = :email and password = :password");  
+            $sql->bindParam(':email', $email, PDO::PARAM_STR);
+            $sql->bindParam(':password', $password, PDO::PARAM_STR);
             $sql->execute();
-            $result = $sql->fetch(PDO::FETCH_OBJ);
+            $result = $sql->fetch(PDO::FETCH_ASSOC);
+            session_start();
+ 
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['nom'] = $result['nom'];
+            $_SESSION['role'] = $result['role'];
+           
+            $_SESSION['email'];
             return !empty($result) ? $result : false;
         
     }
