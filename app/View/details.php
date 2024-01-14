@@ -7,12 +7,15 @@
     <!-- Add the link to the Bootstrap CSS file -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
+<?php 
+include __DIR__.('./includes/navbar.php');
+?>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <!-- Replace with your product image -->
-                <img src="https://via.placeholder.com/400" alt="Product Image" class="img-fluid">
+                <img src="<?= URL_DIR ?>public/assets/images/bkog.png" alt="Product Image" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <h2>Product Title</h2>

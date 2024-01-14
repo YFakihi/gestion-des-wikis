@@ -15,6 +15,9 @@ class DashboardController {
         $tags = new DashboardModel;
         $tags = $tags->getalltags();
 
+        $cats = new DashboardModel;
+        $cats = $cats->getallcat();
+
         include "../app/View/dashbord/Dashboard.php";
     }
 

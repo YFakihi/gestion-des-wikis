@@ -18,6 +18,16 @@ class DashboardModel{
         
            
     }
+
+    public function getallcat(){
+        $query = "SELECT * FROM categories";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $records;
+        
+           
+    }
     public function getallwikis(){
       
 

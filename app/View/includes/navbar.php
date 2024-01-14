@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wikis</title>
@@ -23,7 +25,58 @@
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success me-2" type="submit">Search</button>
+                            
                         </form>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                    Ajouter Wiki
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                        
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                          <form action="Addwiki" method="post">
+                                <div class="form-group">
+                                    <label for="titre">Title</label>
+                                    <input type="text" class="form-control" id="titre" name="titre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contenu">Content</label>
+                                    <textarea class="form-control" id="contenu" name="contenu" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="categorie">Choisir Tags</label>
+                                    <div class="row">
+                                        <?php foreach ($tags as $tag): ?>
+                                            <div class="col-md-6">
+                                                <input type="checkbox" value="<?= $tag['id'] ?>" name="cat" id=""><?= $tag['nom_tag'] ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div></br>
+                                    <label for="categorie">Choisir Categories</label>
+                                    <div class="row">
+                                        <?php foreach ($cats as $cat): ?>
+                                            <div class="col-md-6">
+                                                <input type="radio" value="<?= $cat['id'] ?>" name="cat" id=""><?= $cat['nom'] ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Publier</button>
+                            </form>
+                       
+                        </div>
+                      </div>
+                    </div>
+                    
+<!-- Modal -->
+                    </div>
                     </div>
                  
                     <?php if(!isset($_SESSION['nom'])){?>
@@ -32,6 +85,7 @@
 
                     <?php } else { ?>
                         <?php echo 'Hello'.' ' .$_SESSION['nom']; ?>
+                        
                         <ul class="navbar-nav">
             
                         <li class="nav-item dropdown">

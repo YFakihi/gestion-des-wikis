@@ -1,7 +1,7 @@
 <?php 
 namespace App\Controller;
-class SinglewikiController{
-    public function index(){
+class DetailsController {
+    public function index() {
         include("../app/View/details.php");
     }
 }

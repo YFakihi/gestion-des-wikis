@@ -18,6 +18,7 @@
                         <h4 class="m-t-10 m-b-5">Yasin Fakihi</h4>
     
                         <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                        
                      </div>
                   </div>
 

@@ -209,27 +209,34 @@
         </table>
 
         <div class="container__header">
-            <h3>Tags Statistiques</h3>
+            <h3>Categories Statistiques</h3>
             <i class="fas fa-table"></i>
         </div>
+    
 
         <table class="container__table">
             <thead>
                 <tr>
                     <th>nom</th>
-                    <th>actions</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-               
-                    <tr>
-                        <td></td>
-                        <td>
-                            <div class="btn btn-outline-primary">modifier</div>
-                            <div class="btn btn-outline-danger">supprimer</div>
-                        </td>
-                    </tr>
-           
+
+
+
+     <?php foreach ($cats as $cat) : ?>
+    <tr>
+        <td><?= $cat['nom'] ?></td>
+        <td>
+                           
+            <a href="" <?= $cat['id'] ?> type="submit" class="btn btn-success" name="updatetag">modifier</a>
+            <a href="" <?= $cat['id'] ?> type="submit" class="btn btn-danger" name="deletetag">Delete</a>
+
+    
+</td>
+    </tr>
+    <?php endforeach; ?>
             </tbody>
         </table>
         <div class="container__header">
