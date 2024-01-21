@@ -1,5 +1,4 @@
 
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="public/assets/css/profile.css">
 <div class="container">
@@ -12,19 +11,15 @@
                   <div class="profile-header-cover"></div>
                   <div class="profile-header-content">
                      <div class="profile-header-img">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                        <img src="<?= URL_DIR ?>public/assets/images/per.png" alt="">
                      </div>
                      <div class="profile-header-info">
-                        <h4 class="m-t-10 m-b-5">Yasin Fakihi</h4>
-    
-                        <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
-                        
+                        <h4 class="m-t-10 m-b-5"><?php echo 'Hello'.' ' .$_SESSION['nom']; ?></h4>                        
                      </div>
                   </div>
 
                   <ul class="profile-header-tab nav nav-tabs">
-                     <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-with-timeline-posts" target="__blank" class="nav-link_">POSTS</a></li>
-                     <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-about" target="__blank" class="nav-link_">ABOUT</a></li>
+                     <li class="nav-item"><a href="Home" target="__blank" class="nav-link_">Home</a></li>
 
                   </ul>
                </div>
@@ -37,15 +32,28 @@
                         <li>                                         
                            <div class="timeline-body">
                               <div class="timeline-header">
-                                 <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-                                 <span class="username"><a href="javascript:;">yasin fakihi</a> <small></small></span>
+                                 <span class="userimage"><img src="" alt=""></span>
+                                 <span class="username"><p href="javascript:;">Your Wikis </p> <small></small></span>
                            
                               </div>
                               <div class="timeline-content">
-                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                                    Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
-                                 </p>
+                              <div class="row">
+             <?php foreach ($allWikis as $wiki): ?>
+               <div class="col-lg-4 col-md-6 col-12 my-4 d-flex flex-column align-items-center">
+                 
+                  <div style="max-width: 23rem;" class="card">
+                     <img src="<?= URL_DIR ?>public/assets/images/bkog.png" alt="gara" style="height: 9rem;" class="my-2 position-relative">
+                     <div class="card-body">
+                        <div class="card-head">
+                        <h5 class="card-title fw-semibold text-center"><?= $wiki['titre'] ?></h5>
+                        
+                        <p class="card-text text-center text-truncate"><?= $wiki['contenu'] ?></p>
+                        </div>
+                     </div>
+                  </div>
+                  <button type="button" class="btn btn-danger">delete</button>                  </a>  </div>
+            <?php endforeach; ?>
+</div>
                               </div>
                              
                               </div>               

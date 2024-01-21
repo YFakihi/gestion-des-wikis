@@ -18,7 +18,7 @@ public function signin() {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $reg->registerUser($nom, $email, $password);
-            header("Location:".URL_DIR."signin");
+            header("Location:".URL_DIR."home");
         }
     }
 
@@ -38,7 +38,7 @@ public function signin() {
             if($user)
             {
               
-               if($user['role'] == 1)
+               if($user['role'] == 0)
                {
                   header("Location:".URL_DIR."dashboard");
                }

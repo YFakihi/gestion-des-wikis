@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/auth.css">
     <title>Document</title>
-    <!-- <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('registerForm').addEventListener('submit', function (event) {
                 if (!validateForm()) {
@@ -47,13 +47,13 @@
                 return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
             }
         });
-    </script> -->
+    </script>
 </head>
 
-<body>
-    <div class="signup__container row justify-content-between">
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="signup__container row">
+        <H2>WELCOME</H2>
         <form id="registerForm" class="signup__container__form col-12 col-md-6" action="<?=URL_DIR?>Auth/log" method="POST">
-          
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address :</label>
@@ -62,19 +62,17 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password :</label>
-                <input type="password" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Enter your password ">
+                <input type="password" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Enter your password">
                 <small id="password" class="form-text text-muted"></small>
             </div>
 
-            <button type="submit" name="submit" class="signup__container__form__submit btn btn-primary ">Create Account</button>
+            <button type="submit" name="submit" class="signup__container__form__submit btn btn-primary">Login</button>
         </form>
 
-        <div class="signup__picture  d-none d-md-flex  col-md-6 ">
+        <div class="signup__picture d-none d-md-flex col-md-6">
             <img src="/assets/images/articles.avif" alt="">
         </div>
     </div>
-
-    
 </body>
 
 </html>

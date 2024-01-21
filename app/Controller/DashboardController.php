@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Model\DashboardModel;
 use App\Model\TagsModel;
-
 class DashboardController {
     public function index() {
         $users = new DashboardModel;

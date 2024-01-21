@@ -15,10 +15,10 @@
 include __DIR__.('./includes/navbar.php');
 ?>
 <body>
-<div class="row">
+<div class="row" id="search_list" >
   <?php foreach ($allWikis as $wiki): ?>
     <div class="col-lg-4 col-md-6 col-12 my-4 d-flex flex-column align-items-center">
-      <a href="Details" class="card stretched-link text-decoration-none">
+      <a href="#" class="card stretched-link text-decoration-none">
         <div style="max-width: 23rem;" class="card">
           <img src="<?= URL_DIR ?>public/assets/images/bkog.png" alt="gara" style="height: 9rem;" class="my-2 position-relative">
           <div class="card-body">
@@ -42,6 +42,28 @@ include __DIR__.('./includes/navbar.php');
 
 
 </body>
+<script>
+
+     // Assurez-vous que le DOM est chargé avant d'exécuter du code jQuery
+    $(document).ready(function(){
+
+
+        $("#input_search").keyup(function(){
+            var input = $(this).val(); 
+            if(input == "") input = 'all';
+ 
+            $.ajax({
+                url: "http://localhost/gestion-des-wikis/Home/search",
+                method: "POST",
+                data: {input: input},
+                success: function(data){
+                    $("#search_list").html(data);
+                }
+            });
+        });
+    });
+
+</script>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

@@ -19,7 +19,7 @@
         <ul class="menu__list">
             <li class="menu__list__item menu__list__item__profile">
                 <div class="menu__profile">
-                    <img src="/assets/images/profile.jpg" alt="">
+                    <img src="<?= URL_DIR ?>public/assets/images/per.png" alt="">
                 </div>
                 <h4 class="menu__profile__name">Yasin Fakihi</h4>
             </li>
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li class="menu__list__item">
-                <a href="">
+                <a href="#users">
                     <i class="fas fa-user-group"></i>
                     <p>users</p>
                 </a>
@@ -38,13 +38,13 @@
             <li class="menu__list__item">
                 <a href="">
                     <i class="fas fa-table"></i>
-                    <p>dashboard</p>
+                    <p>Ctegories</p>
                 </a>
             </li>
             <li class="menu__list__item">
                 <a href="">
                     <i class="fas fa-chart-pie"></i>
-                    <p>dashboard</p>
+                    <p>Wikis</p>
                 </a>
             </li>
 
@@ -90,6 +90,7 @@
                 <i class="fas fa-table"></i>
                 <div class="container__statistique__info">
                     <p>categories</p>
+                    <p class="container__statistique__detail"><?=count($cats) ?></p>
                 </div>
             </div>
 
@@ -153,7 +154,7 @@
             <h3>Tags Statistiques</h3>
             
             <i class="fas fa-tag"></i>
-        </div>
+        </div></br>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Ajoute
                             </button>
@@ -163,7 +164,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5 text-dark " id="exampleModalLabel">Ajouter Wiki</h1>
+                                            <h1 class="modal-title fs-5 text-dark " id="exampleModalLabel">Ajouter Tags</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-dark ">
@@ -171,7 +172,7 @@
                                     <div class="form-group">
                                         <label for="tag">Nom Tag</label>
                                         <input type="text" class="form-control" id="nom_tag" name="nom_tag" aria-describedby="tag" placeholder="Enter Tag">
-                                    </div>
+                                    </div><br/>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>  
                                         </div>
@@ -239,7 +240,7 @@
     <?php endforeach; ?>
             </tbody>
         </table>
-        <div class="container__header">
+        <div class="container__header" id = "users">
             <h3>Users Statistiques</h3>
             <i class="fas fa-user-group"></i>
         </div>

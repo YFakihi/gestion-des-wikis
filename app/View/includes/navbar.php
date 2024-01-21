@@ -23,7 +23,7 @@
                     <div class="navbar-nav font-weight-bold mx-auto py-0">
                         <a href="index.html" class="nav-item nav-link active me-4">Home</a>
                         <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control me-2" type="search" id="input_search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success me-2" type="submit">Search</button>
                             
                         </form>
@@ -54,7 +54,7 @@
                                     <div class="row">
                                         <?php foreach ($tags as $tag): ?>
                                             <div class="col-md-6">
-                                                <input type="checkbox" value="<?= $tag['id'] ?>" name="cat" id=""><?= $tag['nom_tag'] ?>
+                                                <input type="checkbox" value="<?= $tag['id'] ?>" name="tag[]" id=""><?= $tag['nom_tag'] ?>
                                             </div>
                                         <?php endforeach; ?>
                                     </div></br>
@@ -94,7 +94,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end position-absolute">
                                 <a href="Profile" class="dropdown-item" href="">Profile</a>
-                                <?php if($_SESSION['role'] == 1 ){ ?>
+                                <?php if($_SESSION['role'] == 0 ){ ?>
                                 <a href="" class="dropdown-item" href="">dashboard</a>
                                 <?php } ?>
                                 

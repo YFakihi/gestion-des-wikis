@@ -24,5 +24,15 @@ class WikisModel extends Database {
         return $records; 
         
     }
+     public function searchwikis($input){
+
+        $query = "SELECT w.titre , c.nom ,w.contenu FROM wikis w  inner JOIN categories c where   w.titre LiKE '%{$input}%' AND w.id_categorie = c.id ";
+        $stmt = $this->getConnection()->query($query);
+
+        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       
+
+        return $records; 
+     }
     
 }

@@ -15,9 +15,22 @@ class HomeController {
 
         $cats = new DashboardModel;
         $cats = $cats->getallcat();
-
+        
         include '../app/View/home.php';
     }
+    public function search(){
+        $input = $_POST['input'];
+        $wikis = new WikisModel;
+        $allWikis = $wikis->getallwikis();
+        if ($input == "all"){
+            include '../public/search.php';
+        }else{
+           $allWikis= $wikis->searchwikis($input);
+           include '../public/search.php';
+        }
+
+    }
 }
+
 ?>
 
